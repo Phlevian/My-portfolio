@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
 </head>
 <body>
     <header class="navbar">
@@ -32,12 +38,11 @@
 
 </header>
 <section class="hero">
-  <div class="hero-content">
-    <h1>Hi, I'm Phlevian<br><span>A Web Developer</span></h1>
-    <p>I build responsive and visually engaging websites. I’m passionate about frontend development and design.</p>
-    <a href="#contact" class="cta-btn">Get in Touch</a>
-  </div>
-
+  <div class="hero-content animate animate-delay-1">
+  <h1>Hi, I'm Phlevian<br><span>A Web Developer</span></h1>
+  <p>I build responsive and visually engaging websites. I’m passionate about frontend development and design.</p>
+  <a href="#contact" class="cta-btn">Get in Touch</a>
+</div>
   <div class="Developer">
    <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Developer" width="300">
   </div>
@@ -98,7 +103,7 @@
     <p>These are some of the demos and layouts I’ve created while learning HTML, CSS, and JavaScript. I'm still building real projects!</p>
   </div>
 
-  <div class="practice-grid">
+  <div class="practice-row">
     <div class="practice-card">
       <img src="https://picsum.photos/id/180/400/250" alt="Laptop Practice Demo" />
       <div class="practice-info">
@@ -109,6 +114,7 @@
     </div>
 
   <div class="practice-card">
+    <div class="practice-card">
   <img src="https://picsum.photos/id/250/600/400" alt="Camera Image">
   <div class="practice-info">
     <h3>Photography Practice</h3>
@@ -118,6 +124,7 @@
 </div>
 
     <div class="practice-card">
+      <div class="practice-card">
       <img src="https://picsum.photos/id/201/400/250" alt="Portfolio Demo" />
       <div class="practice-info">
         <h3>My Portfolio</h3>
@@ -151,6 +158,9 @@
   </div>
 </footer>
 
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>
