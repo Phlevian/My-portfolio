@@ -509,28 +509,6 @@
   animation-delay: 0.8s;
 }
 
-#scrollTopBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: none;
-  background-color: #4F46E5;
-  color: #fff;
-  border: none;
-  outline: none;
-  padding: 10px 15px;
-  border-radius: 50%;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-}
-
-#scrollTopBtn:hover {
-  background-color: #3730A3;
-}
-
 .toggle-example {
   text-align: center;
   margin: 50px 0;
