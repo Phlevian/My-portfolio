@@ -49,7 +49,7 @@
    <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Developer" width="300">
   </div>
 </section>
-<section class="about reveal" data-aos="fade-right">
+<section class="about" data-aos="fade-right">
   <div class="about-container">
     <div class="about-img">
       <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500" alt="Woman Programming">
@@ -69,32 +69,32 @@
   <div class="about-img" data-aos="zoom-in"></div>
 <div class="about-text" data-aos="fade-left"></div>
 </section>
-<section class="skills reveal" data-aos="fade-up">
-  <div class="skills-header">
+<section class="skills" data-aos="fade-up">
+  <div class="skills-header" data-aos="fade-right" data-aos-delay="100">
     <h2>My Skills</h2>
     <p>These are the technologies I’m currently learning and working with:</p>
   </div>
 
   <div class="skills-grid">
-    <div class="skill-card">
+    <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
       <i class="fab fa-html5"></i>
       <h3>HTML5</h3>
       <p>Building the structure of web pages</p>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
       <i class="fab fa-css3-alt"></i>
       <h3>CSS3</h3>
       <p>Styling websites with modern layouts</p>
     </div>
 
-    <div class="skill-card">
+     <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
       <i class="fab fa-js"></i>
       <h3>JavaScript</h3>
       <p>Adding interactivity and dynamic features</p>
     </div>
 
-    <div class="skill-card">
+        <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
       <i class="fas fa-mobile-alt"></i>
       <h3>Responsive Design</h3>
       <p>Making sites look good on all devices</p>
@@ -108,8 +108,7 @@
   </p>
   <button id="toggleBtn">Show More</button>
 </section>
-<section class="practice reveal" data-aos="fade-up">
-  <div class="practice-card" data-aos="zoom-in" data-aos-delay="100"></div>
+<section class="practice" data-aos="fade-up">
   <div class="practice-header">
     <h2>Practice Demos</h2>
     <p>These are some of the demos and layouts I’ve created while learning HTML, CSS, and JavaScript. I'm still building real projects!</p>
@@ -122,7 +121,7 @@
 </div>
 
   <div class="practice-row">
-    <div class="practice-card" data-category="web">
+     <div class="practice-card" data-category="web" data-aos="zoom-in" data-aos-delay="100">
       <img src="https://picsum.photos/id/180/400/250" alt="Laptop Practice Demo" />
       <div class="practice-info">
         <h3>HTML/CSS Layout</h3>
@@ -131,16 +130,16 @@
       </div>
     </div>
 
-  <div class="practice-card" data-category="photo">
+<div class="practice-card" data-category="photo" data-aos="zoom-in" data-aos-delay="200">
   <img src="https://picsum.photos/id/250/600/400" alt="Camera Image">
   <div class="practice-info">
     <h3>Photography Practice</h3>
-   I'm currently learning JavaScript by building a photography website with dynamic image galleries, filters, and smooth transitions.</p>
+   <p>I'm currently learning JavaScript by building a photography website with dynamic image galleries, filters, and smooth transitions.</p>
     <span class="tag">Coming soon</span>
   </div>
 </div>
 
-    <div class="practice-card" data-category="portfolio">
+    <div class="practice-card" data-category="portfolio" data-aos="zoom-in" data-aos-delay="300">
       <img src="https://picsum.photos/id/201/400/250" alt="Portfolio Demo" />
       <div class="practice-info">
         <h3>My Portfolio</h3>
@@ -155,7 +154,7 @@
     <h2 class="section-title">Let’s Connect</h2>
     <p class="section-subtitle">Have a project in mind or just want to say hi?</p>
 
-    <form class="contact-form" id="contactForm">
+   <form class="contact-form" data-aos="fade-up" data-aos-delay="300">
   <input type="text" id="name" placeholder="Your Name" required />
   <small class="error-message" id="nameError"></small>
 
@@ -182,10 +181,6 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
 <script>
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
@@ -280,33 +275,48 @@
         const cardCategory = card.dataset.category;
 
         if (selectedCategory === "all" || cardCategory === selectedCategory) {
-          card.style.display = "block";
+          card.classList.remove("hidden");
         } else {
-          card.style.display = "none";
+          card.classList.add("hidden");
         }
       });
     });
   });
 </script>
-
 <script>
-  const reveals = document.querySelectorAll(".reveal");
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalTitle = document.getElementById("modal-title");
+  const modalDescription = document.getElementById("modal-description");
+  const closeButton = document.querySelector(".close-button");
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target);
-      }
+  const cards = document.querySelectorAll(".practice-card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const img = card.querySelector("img").src;
+      const title = card.querySelector("h3").textContent;
+      const desc = card.querySelector("p").textContent;
+
+      modalImg.src = img;
+      modalTitle.textContent = title;
+      modalDescription.textContent = desc;
+
+      modal.style.display = "flex";
     });
-  }, {
-    threshold: 0.1 
   });
 
-  reveals.forEach(reveal => {
-    observer.observe(reveal);
+  closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
   });
 </script>
+
 <script>
   const contactForm = document.getElementById("contactForm");
 
@@ -353,6 +363,22 @@
       successMessage.style.display = "block";
       contactForm.reset();
     }
+  });
+</script>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <img id="modal-img" src="" alt="Modal Preview" />
+    <h3 id="modal-title">Project Title</h3>
+    <p id="modal-description">Project description goes here.</p>
+  </div>
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 800,
+    easing: 'ease-in-out'
   });
 </script>
 

@@ -5,6 +5,28 @@
   font-family: 'Poppins', sans-serif;
 }
 
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+section {
+  padding: 100px 0; 
+}
+
+.about-container,
+.skills-grid,
+.practice-row {
+  gap: 40px;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -101,20 +123,22 @@
   margin-bottom: 30px;
 }
 
+button,
 .cta-btn {
-  padding: 12px 28px;
-  background-color: #4F46E5;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
   cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
 }
 
+button:hover,
 .cta-btn:hover {
-  background-color: #4338CA;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .hero-image {
@@ -240,25 +264,24 @@
 }
 
 .practice-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 0 20px;
   justify-content: center;
-  gap: 30px;
-  padding: 40px 20px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
 }
 
 .practice-card {
-  background-color: #ffffff;
-  width: 300px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .practice-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .practice-card img {
@@ -269,21 +292,23 @@
   border-top-right-radius: 16px;
 }
 
-.practice-info {
-  padding: 16px;
+.practice-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
 }
 
-.practice-info h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  color: #111827;
-}
-
-.practice-info p {
-  font-size: 14px;
-  color: #555;
+.practice-header h2 {
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
+
+.practice-header p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
 
 .tag {
   background: #e0e7ff;
@@ -511,22 +536,32 @@
 
 .toggle-example {
   text-align: center;
-  margin: 50px 0;
+  padding: 80px 20px;
+}
+
+.toggle-example p {
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 #toggleBtn {
-  background-color: #4F46E5;
-  color: #fff;
-  padding: 10px 20px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
   border: none;
-  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 30px;
   cursor: pointer;
-  margin-top: 15px;
+  transition: all 0.3s ease;
 }
 
 #toggleBtn:hover {
-  background-color: #3730A3;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
+
 
 .typed-text::after {
   content: "|";
@@ -642,6 +677,85 @@ body {
   font-size: 1rem;
   margin-top: 10px;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  max-width: 600px;
+  width: 90%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.practice-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+.practice-row.centered {
+  justify-content: center;
+}
+
+
+
 
 
 
