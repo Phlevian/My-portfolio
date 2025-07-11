@@ -259,42 +259,12 @@ button:hover,
 }
 
 .practice {
-  padding: 60px 0;
+  padding: 80px 20px;
+  background-color: #f9fafb;
   text-align: center;
-  background: #f9fafb;
-}
-
-.practice-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-  padding: 0 20px;
-  justify-content: center;
-}
-
-.practice-card {
-  background: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.practice-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.practice-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
 }
 
 .practice-header {
-  text-align: center;
   max-width: 700px;
   margin: 0 auto 60px auto;
   padding: 0 20px;
@@ -303,13 +273,83 @@ button:hover,
 .practice-header h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: #111827;
 }
 
 .practice-header p {
   font-size: 1.1rem;
   line-height: 1.6;
+  color: #4b5563;
 }
 
+.filter-buttons {
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  margin: 0 8px;
+  background-color: #e5e7eb;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #4F46E5;
+  color: white;
+}
+
+.practice-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.practice-card {
+  background-color: #ffffff;
+  width: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.practice-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.practice-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.practice-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.practice-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.practice-info p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
 
 .tag {
   background: #e0e7ff;
@@ -317,8 +357,8 @@ button:hover,
   padding: 5px 10px;
   border-radius: 999px;
   font-size: 12px;
+  display: inline-block;
 }
-
 
 .project-card {
   flex: 0 0 300px;
@@ -506,16 +546,16 @@ button:hover,
 }
 
 .animate-delay-1 {
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
 }
 .animate-delay-2 {
-  animation-delay: 0.4s;
+  animation-delay: 0.2s;
 }
 .animate-delay-3 {
-  animation-delay: 0.6s;
+  animation-delay: 0.3s;
 }
 .animate-delay-4 {
-  animation-delay: 0.8s;
+  animation-delay: 0.4s;
 }
 
 .toggle-example {
@@ -687,12 +727,14 @@ body {
 }
 
 .modal-content img {
-  width: 100%;
-  max-width: 500px;
+  max-width: 90%;
+  max-height: 80vh;
+  width: auto;
   height: auto;
   object-fit: contain;
+  margin: 0 auto;
+  display: block;
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content h3 {

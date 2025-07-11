@@ -179,7 +179,7 @@
     <h2 class="section-title">Let’s Connect</h2>
     <p class="section-subtitle">Have a project in mind or just want to say hi?</p>
 
-   <form class="contact-form" data-aos="fade-up" data-aos-delay="300">
+   <form id="contactForm" class="contact-form" data-aos="fade-up" data-aos-delay="300">
   <input type="text" id="name" placeholder="Your Name" required />
   <small class="error-message" id="nameError"></small>
 
@@ -374,53 +374,59 @@
 </script>
 
 <script>
-  const contactForm = document.getElementById("contactForm");
+ const contactForm = document.getElementById("contactForm");
 
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const messageInput = document.getElementById("message");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
 
-  const nameError = document.getElementById("nameError");
-  const emailError = document.getElementById("emailError");
-  const messageError = document.getElementById("messageError");
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const messageError = document.getElementById("messageError");
 
-  const successMessage = document.getElementById("successMessage");
+const successMessage = document.getElementById("successMessage");
 
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault(); 
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault(); 
 
-    let isValid = true;
+  let isValid = true;
 
-    nameError.style.display = "none";
-    emailError.style.display = "none";
-    messageError.style.display = "none";
-    successMessage.style.display = "none";
+  nameError.style.display = "none";
+  emailError.style.display = "none";
+  messageError.style.display = "none";
+  successMessage.style.display = "none";
 
-    if (nameInput.value.trim() === "") {
-      nameError.textContent = "Please enter your name.";
-      nameError.style.display = "block";
-      isValid = false;
-    }
+  if (nameInput.value.trim() === "") {
+    nameError.textContent = "Please enter your name.";
+    nameError.style.display = "block";
+    isValid = false;
+  }
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(emailInput.value.trim())) {
-      emailError.textContent = "Please enter a valid email address.";
-      emailError.style.display = "block";
-      isValid = false;
-    }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(emailInput.value.trim())) {
+    emailError.textContent = "Please enter a valid email address.";
+    emailError.style.display = "block";
+    isValid = false;
+  }
 
-    if (messageInput.value.trim().length < 10) {
-      messageError.textContent = "Your message should be at least 10 characters.";
-      messageError.style.display = "block";
-      isValid = false;
-    }
+  if (messageInput.value.trim().length < 10) {
+    messageError.textContent = "Your message should be at least 10 characters.";
+    messageError.style.display = "block";
+    isValid = false;
+  }
 
-    if (isValid) {
-      successMessage.style.display = "block";
-      contactForm.reset();
-    }
-  });
+  if (isValid) {
+    successMessage.style.display = "block";
+    contactForm.reset();
+
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 5000);
+  }
+});
+
 </script>
+
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="close-button">&times;</span>
@@ -484,7 +490,5 @@
     testimonials.classList.toggle("hidden");
   });
 </script>
-
-
 </body>
 </html>
